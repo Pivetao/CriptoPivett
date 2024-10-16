@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pivetão (PVT) - Criptomoeda</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .profile-image {
+            margin-top: 50px;
+            width: 150px;
+            border-radius: 50%;
+            border: 2px solid green;
+        }
+
+        .logo {
+            margin-top: 50px;
+            width: 250px;
+        }
+
+        .btn {
+            background-color: green;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            margin: 20px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: darkgreen;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .instagram-link {
+            color: green;
+            font-size: 18px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .instagram-link:hover {
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://files.oaiusercontent.com/file-C7hqOiJtYh16TROWvUEjI5MU?se=2024-10-16T21%3A49%3A50Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D2e3d9f38-375e-4a3f-af11-b0192aa73573.webp&sig=BcO7F5rGF3X9AfPITZx7Y6626YsupQbP6DaHZ8x4ZFk%3D" alt="Pivetão Logo" class="logo">
+        <h1>Bem-vindo ao Pivetão (PVT)</h1>
+        <p>A criptomoeda que você pode confiar!</p>
+        
+        <button class="btn" id="connectButton">Conectar MetaMask</button>
+        <button class="btn" onclick="window.open('https://bscscan.com/token/0x34Dcad4d57503F8Dc1e23f5C4d67029eFC922545', '_blank')">Ver Contrato no BscScan</button>
+        
+        <br>
+        <a href="https://www.instagram.com/criptopivete/" class="instagram-link" target="_blank">Nos siga no Instagram</a>
+    </div>
+
+    <script>
+        async function connect() {
+            if (window.ethereum) {
+                try {
+                    await ethereum.request({ method: 'eth_requestAccounts' });
+                    document.getElementById('connectButton').innerText = "Conectado!";
+                } catch (error) {
+                    console.error("Conexão MetaMask falhou:", error);
+                }
+            } else {
+                alert('MetaMask não encontrada! Instale a extensão para continuar.');
+            }
+        }
+
+        document.getElementById('connectButton').addEventListener('click', connect);
+    </script>
+</body>
+</html>
